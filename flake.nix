@@ -9,8 +9,12 @@
         in
         {
           packages.genmc-unwrapped = pkgs.genmc-unwrapped;
+
           packages.genmc = pkgs.genmc;
+
           packages.vampire = pkgs.vampire;
+
+          templates.tlaPlus = ./tlaPlus-template;
         };
     in
     flake-utils.lib.eachDefaultSystem out // {
