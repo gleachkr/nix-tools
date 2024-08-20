@@ -15,6 +15,8 @@
           packages.vampire = pkgs.vampire;
 
           templates.tlaPlus = ./tlaPlus-template;
+
+          templates.llvm-pass = ./llvm-pass-template;
         };
     in
     flake-utils.lib.eachDefaultSystem out // {
