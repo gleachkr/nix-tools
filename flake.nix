@@ -5,7 +5,10 @@
     let
       out = system:
         let
-          pkgs = import nixpkgs { inherit system; overlays = [self.overlays.default]; };
+          pkgs = import nixpkgs { 
+            inherit system; 
+            overlays = [self.overlays.default]; 
+          };
         in
         {
           packages.genmc-unwrapped = pkgs.genmc-unwrapped;
@@ -13,13 +16,23 @@
           packages.genmc = pkgs.genmc;
 
           packages.vampire = pkgs.vampire;
-
-          templates.tlaPlus = ./tlaPlus-template;
-
-          templates.llvm-pass = ./llvm-pass-template;
         };
     in
     flake-utils.lib.eachDefaultSystem out // {
+
+      templates = {
+
+        tlaPlus = {
+          description = "a minimal TLA+ template with a modern TLC";
+          path = ./tlaPlus-template;
+        };
+
+        llvm-pass = {
+          description = "A skeleton LLVM pass based on Adrian Sampson's blog";
+          path = ./llvm-pass-template;
+        };
+
+      };
 
       overlays.default = final: prev: {
 
