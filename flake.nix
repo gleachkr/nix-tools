@@ -16,6 +16,8 @@
           packages.genmc = pkgs.genmc;
 
           packages.vampire = pkgs.vampire;
+
+          packages.openocd = pkgs.openocd;
         };
     in
     flake-utils.lib.eachDefaultSystem out // {
@@ -41,6 +43,14 @@
         genmc = final.callPackage ./genmc/genmc.nix { };
 
         vampire = final.callPackage ./vampire { };
+
+        openocd = prev.openocd.overrideAttrs {
+          configureFlags = [
+            "--enable-remote-bitbang"
+            "--enable-jtag_vpi"
+            "--enable-ftd"
+          ];
+        };
 
       };
     };
