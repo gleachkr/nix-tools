@@ -18,6 +18,8 @@
           packages.vampire = pkgs.vampire;
 
           packages.openocd = pkgs.openocd;
+
+          packages.vitejs= pkgs.vitejs;
         };
     in
     flake-utils.lib.eachDefaultSystem out // {
@@ -43,6 +45,8 @@
         genmc = final.callPackage ./genmc/genmc.nix { };
 
         vampire = final.callPackage ./vampire { };
+
+        vitejs = final.callPackage ./vitejs { };
 
         openocd = prev.openocd.overrideAttrs {
           configureFlags = [
