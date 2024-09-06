@@ -20,6 +20,8 @@
           packages.openocd = pkgs.openocd;
 
           packages.vitejs= pkgs.vitejs;
+
+          packages.neovim = pkgs.my-neovim;
         };
     in
     flake-utils.lib.eachDefaultSystem out // {
@@ -47,6 +49,8 @@
         vampire = final.callPackage ./vampire { };
 
         vitejs = final.callPackage ./vitejs { };
+
+        my-neovim = final.callPackage ./neovim { };
 
         openocd = prev.openocd.overrideAttrs {
           configureFlags = [
