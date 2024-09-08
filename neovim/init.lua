@@ -55,7 +55,7 @@ vim.opt.expandtab = true
 vim.opt.ts = 4
 vim.opt.sw = 4
 
--- vim.cmd("ColorDefault seoul256")
+vim.cmd("colo seoul256")
 
 vim.cmd.dig("|-", 8866)   -- ⊢
 vim.cmd.dig("|=", 8872)   -- ⊨

@@ -25,7 +25,90 @@ let
       '';
     };
 
-    neovimConfig = neovimUtils.makeNeovimConfig { };
+    plugins = with vimPlugins; [
+      nvim-treesitter.withAllGrammars
+      luasnip
+      nvim-cmp
+      cmp_luasnip
+      cmp-nvim-lsp
+      lspkind-nvim
+      cmp-buffer
+      cmp-path
+      cmp-nvim-lua
+      cmp-cmdline
+      cmp-git
+      # nvim-cmp-lua-latex-symbols
+      cmp-spell
+      lean-nvim
+      nvim-lspconfig
+      plenary-nvim
+      which-key-nvim
+      nvim-web-devicons
+      zen-mode-nvim
+      undotree
+      # bg-nvim
+      # guile-vim
+      vimtex
+      solarized-nvim
+      # vim-lucius
+      vim-hybrid
+      # recover-vim
+      mediawiki-vim
+      # colour-schemes
+      # matchit
+      # anderson-vim
+      zenburn
+      gv-vim
+      limelight-vim
+      rainbow_parentheses-vim
+      seoul256-vim
+      vim-easy-align
+      vim-sneak
+      vim-sexp
+      vim-sexp-mappings-for-regular-people
+      vim-pug
+      # vim-stylus
+      # sweater
+      vim-javascript
+      # vim-colors-pencil
+      vim-commentary
+      vim-fugitive
+      vim-repeat
+      vim-unimpaired
+      vim-rhubarb
+      # vim-interestingwords
+      vim-racket
+      colorizer
+      # vim-syntax-shakespeare
+      oceanic-next
+      nightfox-nvim
+      vim-jsx-pretty
+      vim-nix
+      conjure
+      # coqtail
+      # nvim-unception
+      vim-loves-dafny
+      fidget-nvim
+      nvim-lightbulb
+      neodev-nvim
+      # coq-lsp-nvim
+      friendly-snippets
+      vim-obsession
+      octo-nvim
+      oil-nvim
+      vim-pandoc-syntax
+      vim-pandoc
+      quarto-nvim
+      otter-nvim
+      telescope-nvim
+      telescope-fzf-native-nvim
+    ];
+
+    neovimConfig = neovimUtils.makeNeovimConfig { 
+      inherit plugins;
+      withPython3 = true;
+      withNodeJs = true;
+    };
 in
   wrapNeovimUnstable neovim-unwrapped (neovimConfig // { 
     luaRcContent = '' 
