@@ -1,0 +1,2 @@
+ColorScheme babymate256
+Background dark
