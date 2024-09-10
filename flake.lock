@@ -18,6 +18,32 @@
         "type": "github"
       }
     },
+    "kani-repo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725480001,
+        "narHash": "sha256-BBcJopXNSKwvMqs/wcw743+g4lvGTqy1OrATTBxph+I=",
+        "type": "tarball",
+        "url": "https://github.com/model-checking/kani/archive/refs/tags/kani-0.55.0.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/model-checking/kani/archive/refs/tags/kani-0.55.0.tar.gz"
+      }
+    },
+    "kani-tarball": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725486047,
+        "narHash": "sha256-i3hnxrZJ8pQIC2QrTJbh9X5mYXLf5XzLls1taOB9noU=",
+        "type": "tarball",
+        "url": "https://github.com/model-checking/kani/releases/download/kani-0.55.0/kani-0.55.0-x86_64-unknown-linux-gnu.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/model-checking/kani/releases/download/kani-0.55.0/kani-0.55.0-x86_64-unknown-linux-gnu.tar.gz"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1721743106,
@@ -34,10 +60,47 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1718428119,
+        "narHash": "sha256-WdWDpNaq6u1IPtxtYHHWpl5BmabtpmLnMAx0RdJ/vo8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e6cea36f83499eb4e9cd184c8a8e823296b50ad5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
+        "kani-repo": "kani-repo",
+        "kani-tarball": "kani-tarball",
+        "nixpkgs": "nixpkgs",
+        "rust-overlay": "rust-overlay"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1725935143,
+        "narHash": "sha256-mVtTVQMlXkydSXVwFClE0ckxHrOQ9nb2DrCjNwW5pUE=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "c3c175c74cd0e8c2c40a0e22bc6e3005c4d28d64",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     },
     "systems": {

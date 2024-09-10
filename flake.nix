@@ -1,7 +1,18 @@
 {
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-  inputs.flake-utils.url = "github:numtide/flake-utils";
-  outputs = { self, nixpkgs, flake-utils, ... }:
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+    rust-overlay.url = "github:oxalica/rust-overlay";
+    kani-repo = {
+        url = "https://github.com/model-checking/kani/archive/refs/tags/kani-0.55.0.tar.gz";
+        flake = false;
+    };
+    kani-tarball = {
+        url = "https://github.com/model-checking/kani/releases/download/kani-0.55.0/kani-0.55.0-x86_64-unknown-linux-gnu.tar.gz";
+        flake = false;
+    };
+  };
+  outputs = inputs@{ self, nixpkgs, flake-utils, ... }:
     let
       out = system:
         let
@@ -22,6 +33,8 @@
           packages.vitejs= pkgs.vitejs;
 
           packages.neovim = pkgs.my-neovim;
+
+          packages.kani = pkgs.kani;
         };
     in
     flake-utils.lib.eachDefaultSystem out // {
@@ -51,6 +64,8 @@
         vitejs = final.callPackage ./vitejs { };
 
         my-neovim = final.callPackage ./neovim { };
+
+        kani = final.callPackage ./kani { inherit inputs; pkgs = final; };
 
         openocd = prev.openocd.overrideAttrs {
           configureFlags = [
