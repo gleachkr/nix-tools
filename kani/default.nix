@@ -46,6 +46,7 @@ in rustPlatform.buildRustPackage rec {
     mkdir -p $out/lib/
     ${rsync}/bin/rsync -av ${kani-home}/ $out/lib/${version} --perms --chmod=D+rw,F+rw
     cp $out/bin/* $out/lib/${version}/bin/
+    ln -s ${rustHome} $out/lib/${version}/toolchain
   '';
 
   postFixup = ''
