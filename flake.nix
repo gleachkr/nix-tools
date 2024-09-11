@@ -65,7 +65,7 @@
 
         my-neovim = final.callPackage ./neovim { };
 
-        kani = final.callPackage ./kani { inherit inputs; pkgs = final; };
+        kani = final.callPackage ./kani { inherit inputs; };
 
         openocd = prev.openocd.overrideAttrs {
           configureFlags = [
