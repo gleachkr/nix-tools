@@ -1,4 +1,4 @@
-{ inputs, glibc, extend, rsync, makeWrapper, stdenv, autoPatchelfHook }:
+{ inputs, glibc, extend, system, rsync, makeWrapper, stdenv, autoPatchelfHook }:
 let
   rustPkgs = extend (import inputs.rust-overlay);
 
@@ -33,31 +33,34 @@ let
     '';
   };
 
-in rustPlatform.buildRustPackage rec {
-  pname = "kani";
+  kani = rustPlatform.buildRustPackage rec {
+    pname = "kani";
 
-  version = "kani-0.55.0";
+    version = "kani-0.55.0";
 
-  src = inputs.kani-repo;
+    src = inputs.kani-repo;
 
-  nativeBuildInputs = [ makeWrapper ];
+    nativeBuildInputs = [ makeWrapper ];
 
-  postInstall = ''
-    mkdir -p $out/lib/
-    ${rsync}/bin/rsync -av ${kani-home}/ $out/lib/${version} --perms --chmod=D+rw,F+rw
-    cp $out/bin/* $out/lib/${version}/bin/
-    ln -s ${rustHome} $out/lib/${version}/toolchain
-  '';
+    postInstall = ''
+      mkdir -p $out/lib/
+      ${rsync}/bin/rsync -av ${kani-home}/ $out/lib/${version} --perms --chmod=D+rw,F+rw
+      cp $out/bin/* $out/lib/${version}/bin/
+      ln -s ${rustHome} $out/lib/${version}/toolchain
+    '';
 
-  postFixup = ''
-    wrapProgram $out/bin/kani --set KANI_HOME $out/lib/
-    wrapProgram $out/bin/cargo-kani --set KANI_HOME $out/lib/
-  '';
+    postFixup = ''
+      wrapProgram $out/bin/kani --set KANI_HOME $out/lib/
+      wrapProgram $out/bin/cargo-kani --set KANI_HOME $out/lib/
+    '';
 
-  cargoHash = "sha256-B7vMvPdIrETCONVf1OQa4TQqjV8vQTPPQD+PKh7Vi3M=";
+    cargoHash = "sha256-B7vMvPdIrETCONVf1OQa4TQqjV8vQTPPQD+PKh7Vi3M=";
 
-  env = {
-    RUSTUP_HOME = "${rustHome}";
-    RUSTUP_TOOLCHAIN = "..";
+    env = {
+      RUSTUP_HOME = "${rustHome}";
+      RUSTUP_TOOLCHAIN = "..";
+    };
   };
-}
+in 
+  if system == "x86_64-linux" then kani 
+  else throw "Oops! ${system} not supported by this kani derivation"
