@@ -74,7 +74,7 @@ cmp.setup.filetype({ "lean" }, {
     }, {
         { name = 'path' },
         { name = 'buffer' },
-        { name = 'lua-latex-symbols', option = { cache = true }, },
+        { name = 'latex_symbols', option = { cache = true }, },
     })
 })
 
@@ -84,7 +84,7 @@ cmp.setup.filetype({ "mail", "pandoc", "markdown", "text" }, {
         { name = 'path' },
         { name = 'buffer' },
         { name = 'spell', option = { keep_all_entries = true }},
-        { name = 'lua-latex-symbols', option = { cache = true }, },
+        { name = 'latex_symbols', option = { cache = true }, },
     })
 })
 

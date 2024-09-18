@@ -37,7 +37,7 @@ let
       cmp-nvim-lua
       cmp-cmdline
       cmp-git
-      # nvim-cmp-lua-latex-symbols
+      cmp-latex-symbols
       cmp-spell
       lean-nvim
       nvim-lspconfig
@@ -52,8 +52,9 @@ let
       solarized-nvim
       # vim-lucius
       vim-hybrid
-      # recover-vim
+      Recover-vim
       mediawiki-vim
+      vim-colorschemes
       # colour-schemes
       # matchit
       # anderson-vim
@@ -67,7 +68,6 @@ let
       vim-sexp
       vim-sexp-mappings-for-regular-people
       vim-pug
-      # vim-stylus
       # sweater
       vim-javascript
       # vim-colors-pencil
@@ -85,8 +85,8 @@ let
       vim-jsx-pretty
       vim-nix
       conjure
-      # coqtail
-      # nvim-unception
+      Coqtail
+      nvim-unception
       vim-loves-dafny
       fidget-nvim
       nvim-lightbulb
