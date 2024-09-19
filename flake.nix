@@ -3,6 +3,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     rust-overlay.url = "github:oxalica/rust-overlay";
+    vim-pandoc = {
+      url = "github:vim-pandoc/vim-pandoc";
+      flake = false;
+    };
     kani-repo = {
         url = "https://github.com/model-checking/kani/archive/refs/tags/kani-0.55.0.tar.gz";
         flake = false;
@@ -63,7 +67,7 @@
 
         vitejs = final.callPackage ./vitejs { };
 
-        my-neovim = final.callPackage ./neovim { };
+        my-neovim = final.callPackage ./neovim { inherit inputs; };
 
         kani = final.callPackage ./kani { inherit inputs; };
 

@@ -82,7 +82,8 @@
         "kani-repo": "kani-repo",
         "kani-tarball": "kani-tarball",
         "nixpkgs": "nixpkgs",
-        "rust-overlay": "rust-overlay"
+        "rust-overlay": "rust-overlay",
+        "vim-pandoc": "vim-pandoc"
       }
     },
     "rust-overlay": {
@@ -115,6 +116,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "vim-pandoc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1721679064,
+        "narHash": "sha256-Pb5yyqZNA1RfsvXYZgiM3sCRPr7u+Klc6rgVLKx+QCo=",
+        "owner": "vim-pandoc",
+        "repo": "vim-pandoc",
+        "rev": "bd11902651edc18076f90ed291581d785be52311",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vim-pandoc",
+        "repo": "vim-pandoc",
         "type": "github"
       }
     }
