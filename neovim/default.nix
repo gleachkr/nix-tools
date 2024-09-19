@@ -1,4 +1,4 @@
-{ wrapNeovimUnstable, stdenv, neovim-unwrapped, neovimUtils, vimPlugins, lib }: 
+{ wrapNeovimUnstable, stdenv, neovim-unwrapped, neovimUtils, vimUtils, vimPlugins, inputs, lib }: 
 let 
     nvimRtp = stdenv.mkDerivation {
       name = "nvim-rtp";
@@ -25,7 +25,13 @@ let
       '';
     };
 
-    plugins = with vimPlugins; [
+    vim-pandoc = vimUtils.buildVimPlugin {
+      pname = "vim-pandoc";
+      version = "v2";
+      src = inputs.vim-pandoc;
+    };
+
+    nixpkgsPlugins = with vimPlugins; [
       nvim-treesitter.withAllGrammars
       luasnip
       nvim-cmp
@@ -97,11 +103,14 @@ let
       octo-nvim
       oil-nvim
       vim-pandoc-syntax
-      vim-pandoc
       quarto-nvim
       otter-nvim
       telescope-nvim
       telescope-fzf-native-nvim
+    ];
+
+    plugins = nixpkgsPlugins ++ [
+      vim-pandoc
     ];
 
     neovimConfig = neovimUtils.makeNeovimConfig { 
