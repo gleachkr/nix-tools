@@ -1,4 +1,4 @@
-{ wrapNeovimUnstable, stdenv, neovim-unwrapped, neovimUtils, vimUtils, vimPlugins, inputs, lib }: 
+{ wrapNeovimUnstable, stdenv, gum, symlinkJoin, writeShellApplication, neovim-unwrapped, neovimUtils, vimUtils, vimPlugins, inputs, lib }: 
 let 
     nvimRtp = stdenv.mkDerivation {
       name = "nvim-rtp";
@@ -118,19 +118,48 @@ let
       withPython3 = true;
       withNodeJs = true;
     };
-in
-  wrapNeovimUnstable neovim-unwrapped (neovimConfig // { 
-    luaRcContent = '' 
-    vim.loader.enable()
-    vim.opt.rtp:prepend('${nvimRtp}/lua')
-    '' + builtins.readFile ./init.lua + ''
-    vim.opt.rtp:prepend('${nvimRtp}/nvim')
-    vim.opt.rtp:prepend('${nvimRtp}/after')
-    '';
-    wrapperArgs = lib.escapeShellArgs neovimConfig.wrapperArgs 
-    + " --set NVIM_APPNAME nvim-nix";
-  })
+
+    neovim = wrapNeovimUnstable neovim-unwrapped (neovimConfig // { 
+      luaRcContent = '' 
+      vim.loader.enable()
+      vim.opt.rtp:prepend('${nvimRtp}/lua')
+      '' + builtins.readFile ./init.lua + ''
+      vim.opt.rtp:prepend('${nvimRtp}/nvim')
+      vim.opt.rtp:prepend('${nvimRtp}/after')
+      '';
+      wrapperArgs = lib.escapeShellArgs neovimConfig.wrapperArgs 
+      + " --set NVIM_APPNAME nvim-nix";
+    });
+
+    neovimSession = writeShellApplication {
+      name = "sesh";
+      runtimeInputs = [
+        neovim
+        gum
+      ];
+      text = ''
+        shopt -s nullglob #makes SESSIONS empty if there aren't any sessions
+
+        SESSIONS=(~/.cache/nvim-nix/*.pipe)
+        CMD="$(gum choose NEW-SESSION "''${SESSIONS[@]}")"
+
+        if [ "$CMD" == NEW-SESSION ]; then
+            SESSION_PATH="$HOME/.cache/nvim-nix/$(gum input --placeholder "session name?").pipe"
+            if [ -f "$SESSION_PATH" ]; then echo "hold your horses!"; exit; fi
+            nohup nvim --headless --listen "$SESSION_PATH" > /dev/null &
+            sleep 1 #kludge to allow nvim time to start up
+            nvim --server "$SESSION_PATH" --remote-ui
+        else
+            nvim --server "$CMD" --remote-ui
+        fi
+      '';
+    };
+
+in symlinkJoin {
+  name = "nvim"; #so standard nvim is what you get with `nix run`
+  paths = [ neovim neovimSession ];
+}
 
 # References:
 
-# https://github.com/nix-community/kickstart-nix.nvim/blob/main/nix/mkNeovim.nix
+# https://github.com/xnix-community/kickstart-nix.nvim/blob/main/nix/mkNeovim.nix
