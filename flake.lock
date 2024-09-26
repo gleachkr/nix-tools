@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "apalache-repo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727172022,
+        "narHash": "sha256-4VUpWRwQ5kUNJ95boUYE72PGXtr9nBFjyCdmLTAEwcY=",
+        "owner": "apalache-mc",
+        "repo": "apalache",
+        "rev": "0d72eb197263cc944095817fe5c70c32a2e774b0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "apalache-mc",
+        "ref": "v0.46.1",
+        "repo": "apalache",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -10,6 +27,21 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
+      "locked": {
+        "lastModified": 1667395993,
+        "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
         "type": "github"
       },
       "original": {
@@ -76,13 +108,31 @@
         "type": "github"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1674990008,
+        "narHash": "sha256-4zOyp+hFW2Y7imxIpZqZGT8CEqKmDjwgfD6BzRUE0mQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d2bbcbe6c626d339b25a4995711f07625b508214",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "apalache-repo": "apalache-repo",
         "flake-utils": "flake-utils",
         "kani-repo": "kani-repo",
         "kani-tarball": "kani-tarball",
         "nixpkgs": "nixpkgs",
         "rust-overlay": "rust-overlay",
+        "sbt-derivation": "sbt-derivation",
         "vim-pandoc": "vim-pandoc"
       }
     },
@@ -101,6 +151,25 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "sbt-derivation": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1698464090,
+        "narHash": "sha256-Pnej7WZIPomYWg8f/CZ65sfW85IfIUjYhphMMg7/LT0=",
+        "owner": "zaninime",
+        "repo": "sbt-derivation",
+        "rev": "6762cf2c31de50efd9ff905cbcc87239995a4ef9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zaninime",
+        "repo": "sbt-derivation",
         "type": "github"
       }
     },

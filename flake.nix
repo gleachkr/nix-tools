@@ -3,6 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     rust-overlay.url = "github:oxalica/rust-overlay";
+    sbt-derivation.url = "github:zaninime/sbt-derivation";
     vim-pandoc = {
       url = "github:vim-pandoc/vim-pandoc";
       flake = false;
@@ -13,6 +14,10 @@
     };
     kani-tarball = {
         url = "https://github.com/model-checking/kani/releases/download/kani-0.55.0/kani-0.55.0-x86_64-unknown-linux-gnu.tar.gz";
+        flake = false;
+      };
+    apalache-repo = {
+        url = "github:apalache-mc/apalache/v0.46.1";
         flake = false;
     };
   };
@@ -39,6 +44,8 @@
           packages.neovim = pkgs.my-neovim;
 
           packages.kani = pkgs.kani;
+
+          packages.apalache = pkgs.apalache;
         };
     in
     flake-utils.lib.eachDefaultSystem out // {
@@ -69,7 +76,9 @@
 
         my-neovim = final.callPackage ./neovim { inherit inputs; };
 
-        kani = final.callPackage ./kani { inherit inputs; };
+        kani = final.callPackage ./kani { inherit (inputs) rust-overlay kani-tarball kani-repo; };
+
+        apalache = final.callPackage ./apalache { inherit (inputs) apalache-repo sbt-derivation; };
 
         openocd = prev.openocd.overrideAttrs {
           configureFlags = [
