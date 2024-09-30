@@ -25,10 +25,14 @@ let
       '';
     };
 
-    vim-pandoc = vimUtils.buildVimPlugin {
-      pname = "vim-pandoc";
-      version = "v2";
-      src = inputs.vim-pandoc;
+    vim-pandoc = {
+      plugin = vimUtils.buildVimPlugin {
+        pname = "vim-pandoc";
+        version = "v2";
+        src = inputs.vim-pandoc;
+      };
+      config = null;
+      optional = true;
     };
 
     nixpkgsPlugins = with vimPlugins; [
