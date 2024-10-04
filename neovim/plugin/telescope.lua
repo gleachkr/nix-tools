@@ -1,4 +1,7 @@
 local opts = {
+    defaults = {
+        prompt_prefix = "  ",
+    },
     extensions = {
         fzf = {
             fuzzy = true,                      -- false will only do exact matching
@@ -12,7 +15,6 @@ local opts = {
         },
     }
 }
-
 
 require('telescope').setup(opts)
 require('telescope').load_extension('fzf')
