@@ -25,6 +25,12 @@ let
       '';
     };
 
+    codecompanion = vimUtils.buildVimPlugin {
+        pname = "vim-pandoc";
+        version = "v5.2.0";
+        src = inputs.codecompanion;
+    };
+
     vim-pandoc = {
       plugin = vimUtils.buildVimPlugin {
         pname = "vim-pandoc";
@@ -94,7 +100,6 @@ let
       nightfox-nvim
       vim-jsx-pretty
       vim-nix
-      conjure
       Coqtail
       nvim-unception
       vim-loves-dafny
@@ -111,10 +116,12 @@ let
       otter-nvim
       telescope-nvim
       telescope-fzf-native-nvim
+      telescope-ui-select-nvim
     ];
 
     plugins = nixpkgsPlugins ++ [
       vim-pandoc
+      codecompanion
     ];
 
     neovimConfig = neovimUtils.makeNeovimConfig { 

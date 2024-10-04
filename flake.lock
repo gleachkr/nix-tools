@@ -17,6 +17,22 @@
         "type": "github"
       }
     },
+    "codecompanion": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727892164,
+        "narHash": "sha256-wB35K0HdOk+389ZhDJb/iZtE7hkyWUblJPuwD0f+Rxo=",
+        "owner": "olimorris",
+        "repo": "codecompanion.nvim",
+        "rev": "9f63ae8012dce6c811238083b94620dd3d1d4893",
+        "type": "github"
+      },
+      "original": {
+        "owner": "olimorris",
+        "repo": "codecompanion.nvim",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -127,6 +143,7 @@
     "root": {
       "inputs": {
         "apalache-repo": "apalache-repo",
+        "codecompanion": "codecompanion",
         "flake-utils": "flake-utils",
         "kani-repo": "kani-repo",
         "kani-tarball": "kani-tarball",

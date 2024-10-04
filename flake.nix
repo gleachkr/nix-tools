@@ -4,6 +4,10 @@
     flake-utils.url = "github:numtide/flake-utils";
     rust-overlay.url = "github:oxalica/rust-overlay";
     sbt-derivation.url = "github:zaninime/sbt-derivation";
+    codecompanion = {
+      url = "github:olimorris/codecompanion.nvim";
+      flake = false;
+    };
     vim-pandoc = {
       url = "github:vim-pandoc/vim-pandoc";
       flake = false;
