@@ -1,6 +1,6 @@
 local opts = {
     defaults = {
-        prompt_prefix = "  ",
+        prompt_prefix = "   ",
     },
     extensions = {
         fzf = {
