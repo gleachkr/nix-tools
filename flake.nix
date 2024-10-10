@@ -66,6 +66,11 @@
           path = ./llvm-pass-template;
         };
 
+        ghc-wasm = {
+          description = "a minimal template GHC WASM project";
+          path = ./ghc-wasm-template;
+        };
+
       };
 
       overlays.default = final: prev: {
