@@ -42,8 +42,11 @@ require"codecompanion".setup{
     adapters = {
         openai = function()
             if not password_cache then
-                -- Retrieve password once and cache it
-                password_cache = io.popen("zenity --password"):read("*line")
+                password_cache = vim.ui.input({
+                    prompt = "Enter OpenAI API key"
+                },
+                    function (input) password_cache = input end
+                )
             end
             return require"codecompanion.adapters".extend("openai", {
                 env = {
