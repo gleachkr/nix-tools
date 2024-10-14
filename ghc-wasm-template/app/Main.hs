@@ -1,6 +1,5 @@
 module MyMain (main) where
 
-import GHC.Wasm.Prim hiding (JSString)
 import Language.Javascript.JSaddle 
 import Language.Javascript.JSaddle.Wasm qualified as JSaddle.Wasm 
 import Control.Lens((^.))

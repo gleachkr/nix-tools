@@ -28,20 +28,21 @@ local generic = {
     }
 }
 
-require 'lspconfig'.dafny.setup(generic)
-require 'lspconfig'.tsserver.setup(generic)
 require 'lspconfig'.bashls.setup(generic)
-require 'lspconfig'.cssls.setup(generic)
-require 'lspconfig'.pylsp.setup(generic)
-require 'lspconfig'.jsonls.setup(generic)
-require 'lspconfig'.html.setup(generic)
-require 'lspconfig'.texlab.setup(generic)
-require 'lspconfig'.rust_analyzer.setup(generic)
-require 'lspconfig'.jedi_language_server.setup(generic)
-require 'lspconfig'.lua_ls.setup(generic)
-require 'lspconfig'.ocamllsp.setup(generic)
-require 'lspconfig'.nil_ls.setup(generic)
 require 'lspconfig'.clangd.setup(generic)
+require 'lspconfig'.cssls.setup(generic)
+require 'lspconfig'.dafny.setup(generic)
+require 'lspconfig'.hls.setup(generic)
+require 'lspconfig'.html.setup(generic)
+require 'lspconfig'.jedi_language_server.setup(generic)
+require 'lspconfig'.jsonls.setup(generic)
+require 'lspconfig'.lua_ls.setup(generic)
+require 'lspconfig'.nil_ls.setup(generic)
+require 'lspconfig'.ocamllsp.setup(generic)
+require 'lspconfig'.pylsp.setup(generic)
+require 'lspconfig'.rust_analyzer.setup(generic)
+require 'lspconfig'.texlab.setup(generic)
+require 'lspconfig'.tsserver.setup(generic)
 -- require 'coq-lsp'.setup {
 --     lsp = {
 --         on_attach = on_attach,

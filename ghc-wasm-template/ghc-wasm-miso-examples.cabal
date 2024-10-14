@@ -20,5 +20,6 @@ executable ghc-wasm-miso-examples
     default-language: GHC2021
     default-extensions: BlockArguments LambdaCase LexicalNegation OverloadedStrings RecordWildCards
     ghc-options: -Wall -Wunused-packages -Wno-name-shadowing -Wredundant-constraints
-    other-modules:
+    other-modules: 
+        Other
     ghc-options: -no-hs-main -optl-mexec-model=reactor "-optl-Wl,--export=hs_start"

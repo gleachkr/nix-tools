@@ -9,6 +9,8 @@
       devShells.default = pkgs.mkShell {
         packages = [
           inputs.ghc-wasm-meta.packages.${system}.all_9_10
+          (pkgs.haskell-language-server.override { supportedGhcVersions = ["910"]; })
+          pkgs.haskell.compiler.ghc910
         ];
       };
     });
