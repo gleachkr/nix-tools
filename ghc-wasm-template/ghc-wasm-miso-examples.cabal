@@ -10,16 +10,15 @@ executable ghc-wasm-miso-examples
       , containers
       , ghc-experimental
       , jsaddle
-      , jsaddle-wasm
       , miso
       , mtl
       , random
       , text
       , lens
+    if arch(wasm32)
+        build-depends: jsaddle-wasm
     hs-source-dirs: app
     default-language: GHC2021
     default-extensions: BlockArguments LambdaCase LexicalNegation OverloadedStrings RecordWildCards
     ghc-options: -Wall -Wunused-packages -Wno-name-shadowing -Wredundant-constraints
-    other-modules: 
-        Other
     ghc-options: -no-hs-main -optl-mexec-model=reactor "-optl-Wl,--export=hs_start"
