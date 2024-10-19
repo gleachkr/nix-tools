@@ -20,11 +20,11 @@
     "codecompanion": {
       "flake": false,
       "locked": {
-        "lastModified": 1727892164,
-        "narHash": "sha256-wB35K0HdOk+389ZhDJb/iZtE7hkyWUblJPuwD0f+Rxo=",
+        "lastModified": 1729202507,
+        "narHash": "sha256-UiB05lSjiKWq3eGQln9zMkNVzf3n1r7U3H1sVlrcz7k=",
         "owner": "olimorris",
         "repo": "codecompanion.nvim",
-        "rev": "9f63ae8012dce6c811238083b94620dd3d1d4893",
+        "rev": "fc146070cc341b1503d61daf6746edb4d0d7e6aa",
         "type": "github"
       },
       "original": {

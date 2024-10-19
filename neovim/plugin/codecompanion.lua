@@ -99,7 +99,12 @@ require"codecompanion".setup{
             opts = {
                 modes = { "v" },
                 auto_submit = true,
-                slash_cmd = "proofread",
+                is_slash_cmd = true,
+                short_name = "proofread",
+                adapter = {
+                    name = "proofreader",
+                    model = "llama3.1",
+                }
             }
         }
     },
