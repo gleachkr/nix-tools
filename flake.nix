@@ -24,6 +24,10 @@
         url = "github:apalache-mc/apalache/v0.46.1";
         flake = false;
     };
+    ebmc-repo = {
+      url = "git+https://github.com/diffblue/hw-cbmc.git?submodules=1";
+      flake = false;
+    };
   };
   outputs = inputs@{ self, nixpkgs, flake-utils, ... }:
     let
@@ -50,6 +54,8 @@
           packages.kani = pkgs.kani;
 
           packages.apalache = pkgs.apalache;
+
+          packages.ebmc = pkgs.ebmc;
         };
     in
     flake-utils.lib.eachDefaultSystem out // {
@@ -84,6 +90,8 @@
         vitejs = final.callPackage ./vitejs { };
 
         my-neovim = final.callPackage ./neovim { inherit inputs; };
+
+        ebmc = final.callPackage ./ebmc { inherit (inputs) ebmc-repo; };
 
         kani = final.callPackage ./kani { inherit (inputs) rust-overlay kani-tarball kani-repo; };
 

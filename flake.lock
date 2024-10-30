@@ -33,6 +33,24 @@
         "type": "github"
       }
     },
+    "ebmc-repo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1730217483,
+        "narHash": "sha256-JDSie4QZnj2k+cgRuKEtaAxNRJ1Vp0dAntP7xLtcp+s=",
+        "ref": "refs/heads/main",
+        "rev": "6b0d3462902a67816a19a26d223735b24686b3d6",
+        "revCount": 2370,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/diffblue/hw-cbmc.git"
+      },
+      "original": {
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/diffblue/hw-cbmc.git"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -144,6 +162,7 @@
       "inputs": {
         "apalache-repo": "apalache-repo",
         "codecompanion": "codecompanion",
+        "ebmc-repo": "ebmc-repo",
         "flake-utils": "flake-utils",
         "kani-repo": "kani-repo",
         "kani-tarball": "kani-tarball",
