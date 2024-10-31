@@ -32,6 +32,23 @@ When given a task:
 3. You should always generate short suggestions for the next user turns that are relevant to the conversation.
 4. You can only give one reply for each conversation turn.]]
 
+local function setup_openai_adapter(api_key)
+    return require"codecompanion.adapters".extend("openai", {
+        env = { api_key = api_key }
+    })
+end
+
+local openai_adapter = function(callback)
+    if not password_cache then
+        vim.ui.input({ prompt = "Enter OpenAI API key: " }, function(input)
+            password_cache = input
+            callback(setup_openai_adapter(password_cache))
+        end)
+    else
+        callback(setup_openai_adapter(password_cache))
+    end
+end
+
 require"codecompanion".setup{
     opts = {
         system_prompt = function(adapter)
@@ -41,18 +58,11 @@ require"codecompanion".setup{
 
     adapters = {
         openai = function()
-            if not password_cache then
-                password_cache = vim.ui.input({
-                    prompt = "Enter OpenAI API key"
-                },
-                    function (input) password_cache = input end
-                )
-            end
-            return require"codecompanion.adapters".extend("openai", {
-                env = {
-                    api_key = password_cache
-                },
-            })
+            local adapter
+            openai_adapter(function(created_adapter)
+                adapter = created_adapter
+            end)
+            return adapter
         end,
         proofreader = function()
             return require"codecompanion.adapters".extend("ollama", {
