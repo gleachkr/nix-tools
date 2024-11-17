@@ -1,4 +1,22 @@
-{ wrapNeovimUnstable, stdenv, gum, symlinkJoin, writeShellApplication, neovim-unwrapped, neovimUtils, vimUtils, vimPlugins, inputs, lib }: 
+{ wrapNeovimUnstable, 
+  stdenv, 
+  gum, 
+  symlinkJoin, 
+  writeShellApplication, 
+  neovim-unwrapped, 
+  neovimUtils, 
+  vimUtils, 
+  vimPlugins, 
+  codecompanion,
+  vim-pandoc, 
+  ripgrep,
+  nil,
+  nodePackages,
+  lua-language-server,
+  yaml-language-server,
+  texlab,
+  lib,
+}: 
 let 
     nvimRtp = stdenv.mkDerivation {
       name = "nvim-rtp";
@@ -25,17 +43,17 @@ let
       '';
     };
 
-    codecompanion = vimUtils.buildVimPlugin {
+    codecompanion-plugin = vimUtils.buildVimPlugin {
         pname = "vim-pandoc";
         version = "v5.2.0";
-        src = inputs.codecompanion;
+        src = codecompanion;
     };
 
-    vim-pandoc = {
+    vim-pandoc-plugin = {
       plugin = vimUtils.buildVimPlugin {
         pname = "vim-pandoc";
         version = "v2";
-        src = inputs.vim-pandoc;
+        src = vim-pandoc;
       };
       config = null;
       optional = true;
@@ -120,8 +138,22 @@ let
     ];
 
     plugins = nixpkgsPlugins ++ [
-      vim-pandoc
-      codecompanion
+      vim-pandoc-plugin
+      codecompanion-plugin
+    ];
+
+    externalPackages = [
+      ripgrep
+      nil
+      lua-language-server
+      texlab
+      yaml-language-server
+      nodePackages.bash-language-server
+      nodePackages.typescript-language-server
+      nodePackages.vscode-langservers-extracted
+      nodePackages.vim-language-server
+      # could add more - basically want anything that's not likely to depend on
+      # the project.
     ];
 
     neovimConfig = neovimUtils.makeNeovimConfig { 
@@ -139,7 +171,8 @@ let
       vim.opt.rtp:prepend('${nvimRtp}/after')
       '';
       wrapperArgs = lib.escapeShellArgs neovimConfig.wrapperArgs 
-      + " --set NVIM_APPNAME nvim-nix";
+      + " --set NVIM_APPNAME nvim-nix"
+      + " --prefix PATH : '${lib.makeBinPath externalPackages}'";
     });
 
     neovimSession = writeShellApplication {

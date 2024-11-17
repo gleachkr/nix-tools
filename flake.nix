@@ -89,7 +89,7 @@
 
         vitejs = final.callPackage ./vitejs { };
 
-        my-neovim = final.callPackage ./neovim { inherit inputs; };
+        my-neovim = final.callPackage ./neovim { inherit (inputs) codecompanion vim-pandoc; };
 
         ebmc = final.callPackage ./ebmc { inherit (inputs) ebmc-repo; };
 
