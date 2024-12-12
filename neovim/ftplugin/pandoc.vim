@@ -22,7 +22,7 @@ nmap <buffer> <leader>f :call pandoc#formatting#ToggleAutoformat()<cr>
 function! Render()
     let l:bufnr = bufnr("%")
     botright 10 new
-    call termopen("while true; do nvr --remote-expr 'join(getbufline(" . l:bufnr . ",1,\"$\"),\"\n\")' | pandoc -s --css='https://cdn.jsdelivr.net/gh/kognise/water.css/dist/light.css' | (echo 'HTTP/1.1 200 OK'; echo; cat) | nc -Nlp 1500; done")
+    call termopen("while true; do nvim --remote-expr 'join(getbufline(" . l:bufnr . ",1,\"$\"),\"\n\")' | pandoc -s --css='https://cdn.jsdelivr.net/gh/kognise/water.css/dist/light.css' | (echo 'HTTP/1.1 200 OK'; echo; cat) | nc -Nlp 1500; done")
     call jobstart("firefox localhost:1500")
 endfunction
 

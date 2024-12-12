@@ -7,18 +7,6 @@ vim.keymap.set('i', 'jk', '<esc>')
 vim.keymap.set("n", "U", vim.cmd.redo, { noremap = true, silent = true })
 vim.keymap.set("n", "Q", "@q")
 vim.keymap.set("n", "gx", "<cmd>terminal xdg-open '<cWORD>'<cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "<Leader>vimrc", function() vim.cmd.tabe("~/.config/nvim/init.lua") end,
-    { noremap = true, silent = true })
-vim.keymap.set("n", "<Leader>ftrc",
-    function()
-        local ftrc = "~/.config/nvim/ftplugin/" .. vim.opt.filetype:get()
-        if 1 == vim.fn.empty(vim.fn.glob(ftrc .. ".vim")) then
-            vim.cmd.tabe(ftrc .. ".lua")
-        else
-            vim.cmd.tabe(ftrc .. ".vim")
-        end
-    end,
-    { noremap = true, silent = true })
 vim.keymap.set("t", "<C-w>", "<C-\\><C-n><C-w>", { noremap = true, silent = true })
 
 vim.opt.undofile = true
@@ -59,16 +47,6 @@ vim.cmd.dig("O6", 9317)
 vim.cmd.dig("O7", 9318)
 vim.cmd.dig("O8", 9319)
 vim.cmd.dig("O9", 9320)
-vim.cmd.dig("ns", 0x2099) -- ₙ
-vim.cmd.dig("is", 0x1d62) -- ᵢ
-vim.cmd.dig("iS", 0x2071) -- ⁱ
-vim.cmd.dig("js", 0x2c7c) -- ⱼ
-vim.cmd.dig("jS", 0x02b2) -- ʲ
-vim.cmd.dig("ks", 0x2096) -- ₖ
-vim.cmd.dig("kS", 0x1D4F) -- ᵏ
-vim.cmd.dig("vs", 0x1D65) -- ᵥ
-vim.cmd.dig("vS", 0x1D5B) -- ᵛ
-vim.cmd.dig("us", 0x1D64) -- ᵤ 
 
 local termAutocommands = vim.api.nvim_create_augroup("TERM", { clear = true })
 vim.api.nvim_create_autocmd("TermOpen",

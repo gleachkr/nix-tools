@@ -47,7 +47,7 @@ local continue_with_adapter = function(callback, adapter)
             callback(setup_adapter(password_cache[adapter], adapter))
         end)
     else
-        callback(setup_adapter(password_cache[adapter]))
+        callback(setup_adapter(password_cache[adapter], adapter))
     end
 end
 
