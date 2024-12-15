@@ -10,6 +10,7 @@
   codecompanion,
   vim-pandoc, 
   ripgrep,
+  gh,
   nil,
   nodePackages,
   lua-language-server,
@@ -144,6 +145,7 @@ let
 
     externalPackages = [
       ripgrep
+      gh
       nil
       lua-language-server
       texlab
