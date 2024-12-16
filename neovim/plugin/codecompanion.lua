@@ -3,36 +3,20 @@ local password_cache = {
     anthropic = nil
 }
 
-local main_system_prompt = [[You are an AI programming assistant named "CodeCompanion".
-You are currently plugged in to the Neovim text editor on a user's machine.
+local writing_prompt = [[ You are an AI writing coach named "ProofReader".
 
-Your core tasks include:
-- Answering general programming questions.
-- Explaining how the code in a Neovim buffer works.
-- Reviewing the selected code in a Neovim buffer.
-- Generating unit tests for the selected code.
-- Proposing fixes for problems in the selected code.
-- Scaffolding code for a new workspace.
-- Finding relevant code to the user's query.
-- Proposing fixes for test failures.
-- Answering questions about Neovim.
-- Running tools.
+Your primary function is give advice about writing style. You favor clear, precise, and direct writing. You are exceptionally skilled, sensitive to fine nuances of meaning, and take pleasure in the use of the English language.
 
-You must:
-- Follow the user's requirements carefully and to the letter.
-- Keep your answers short and impersonal, especially if the user responds with context outside of your tasks.
-- Minimize other prose.
-- Use Markdown formatting in your answers.
-- Include the programming language name at the start of the Markdown code blocks.
-- Avoid line numbers in code blocks.
-- Avoid wrapping the whole response in triple backticks.
-- Only return code that's relevant to the task at hand. You may not need to return all of the code that the user has shared.
+You should pay attention to the genre, and to the audience before considering how the text might be improved.
 
-When given a task:
-1. Think step-by-step and describe your plan for what to build in pseudocode, written out in great detail, unless asked not to do so.
-2. Output the code in a single code block, being careful to only return relevant code.
-3. You should always generate short suggestions for the next user turns that are relevant to the conversation.
-4. You can only give one reply for each conversation turn.]]
+Preseve the tone of the original, unless the tone is inappropriate. If the tone is inappropriate, warn the user and ask how to proceed.
+
+If the original text is unclear, ask about the meaning rather than offering edits right away.
+
+When you do offer edits, first explain how they improve the document.
+
+]]
+
 
 local function setup_adapter(api_key, adapter)
     return require"codecompanion.adapters".extend(adapter, {
@@ -52,12 +36,6 @@ local continue_with_adapter = function(callback, adapter)
 end
 
 require"codecompanion".setup{
-    opts = {
-        system_prompt = function(adapter)
-            return adapter.system_prompt or main_system_prompt
-        end
-    },
-
     adapters = {
         openai = function()
             local adapter
@@ -73,27 +51,22 @@ require"codecompanion".setup{
             end, "anthropic")
             return adapter
         end,
-        proofreader = function()
-            return require"codecompanion.adapters".extend("ollama", {
-                name = "proofreader",
-                system_prompt = [[ You are an AI writing coach named "ProofReader".
-                    You are currently plugged in to the Neovim text editor on a user's machine.
-
-                    You can give advice about writing style. You favor clear, precise, and direct writing.
-                ]]
-            })
-        end,
     },
 
     strategies = {
         chat = {
-          adapter = "ollama",
+            adapter = "openai",
+            slash_commands = {
+                ["buffer"] = { opts = { provider = "telescope", }, },
+                ["file"] = { opts = { provider = "telescope", }, },
+                ["symbols"] = { opts = { provider = "telescope", }, },
+            },
         },
         inline = {
-          adapter = "ollama",
+            adapter = "openai",
         },
         agent = {
-          adapter = "ollama",
+            adapter = "openai",
         },
     },
     display = {
@@ -111,6 +84,10 @@ require"codecompanion".setup{
             description = "proofread for style",
             prompts = {
                 {
+                    role = "system",
+                    content = writing_prompt,
+                },
+                {
                     role = "user",
                     content = "could you give me some advice on improving this text?"
                 }
@@ -118,12 +95,8 @@ require"codecompanion".setup{
             opts = {
                 modes = { "v" },
                 auto_submit = true,
-                is_slash_cmd = true,
                 short_name = "proofread",
-                adapter = {
-                    name = "proofreader",
-                    model = "llama3.1",
-                }
+                ignore_system_prompt = true,
             }
         }
     },

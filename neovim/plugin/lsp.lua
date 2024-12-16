@@ -42,7 +42,7 @@ require 'lspconfig'.ocamllsp.setup(generic)
 require 'lspconfig'.pylsp.setup(generic)
 require 'lspconfig'.rust_analyzer.setup(generic)
 require 'lspconfig'.texlab.setup(generic)
-require 'lspconfig'.tsserver.setup(generic)
+require 'lspconfig'.ts_ls.setup(generic)
 -- require 'coq-lsp'.setup {
 --     lsp = {
 --         on_attach = on_attach,
