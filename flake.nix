@@ -57,27 +57,31 @@
 
           packages.ebmc = pkgs.ebmc;
 
-          templates = {
-
-            tlaPlus = {
-              description = "a minimal TLA+ template with a modern TLC";
-              path = ./templates/tlaPlus;
-            };
-
-            llvm-pass = {
-              description = "A skeleton LLVM pass based on Adrian Sampson's blog";
-              path = ./templates/llvm-pass;
-            };
-
-            ghc-wasm = {
-              description = "a minimal template GHC WASM project";
-              path = ./templates/ghc-wasm;
-            };
-          };
         };
 
     in
     flake-utils.lib.eachDefaultSystem out // {
+
+      # templates and overlays go here because they don't need a <system>
+      # version being added by flake-utils 
+
+      templates = {
+
+        tlaPlus = {
+          description = "a minimal TLA+ template with a modern TLC";
+          path = ./templates/tlaPlus;
+        };
+
+        llvm-pass = {
+          description = "A skeleton LLVM pass based on Adrian Sampson's blog";
+          path = ./templates/llvm-pass;
+        };
+
+        ghc-wasm = {
+          description = "a minimal template GHC WASM project";
+          path = ./templates/ghc-wasm;
+        };
+      };
 
       overlays.default = final: prev: {
 
