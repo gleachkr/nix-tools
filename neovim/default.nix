@@ -44,11 +44,22 @@ let
       '';
     };
 
-    codecompanion-plugin = vimUtils.buildVimPlugin {
-        pname = "vim-pandoc";
+    codecompanion-plugin = (vimUtils.buildVimPlugin {
+        pname = "vim-codecompanion";
         version = "v5.2.0";
         src = codecompanion;
-    };
+      }).overrideAttrs {
+        nvimSkipModule = [
+          "codecompanion.actions.init"
+          "codecompanion.actions.static"
+          "codecompanion.providers.actions.mini_pick"
+          "minimal"
+        ];
+        dependencies = [ 
+          vimPlugins.plenary-nvim 
+          vimPlugins.telescope-nvim
+        ];
+      };
 
     vim-pandoc-plugin = {
       plugin = vimUtils.buildVimPlugin {
