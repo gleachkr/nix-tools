@@ -20,11 +20,11 @@
     "codecompanion": {
       "flake": false,
       "locked": {
-        "lastModified": 1734269041,
-        "narHash": "sha256-vxwO7cLm8LNJbjJNH2e9F7e6kU+Ya5RsfIPS71r9G0o=",
+        "lastModified": 1735475433,
+        "narHash": "sha256-nLyxEAu4sSoNk1OWsKvxETpziVeAtzyg385mz9FmDCQ=",
         "owner": "olimorris",
         "repo": "codecompanion.nvim",
-        "rev": "c0b8c2522c20b8369201132a4ce953f3cdf7b5e2",
+        "rev": "dab51b5a195ad382f1e4b3a4968f836c4bb48623",
         "type": "github"
       },
       "original": {
@@ -36,11 +36,11 @@
     "ebmc-repo": {
       "flake": false,
       "locked": {
-        "lastModified": 1733735147,
-        "narHash": "sha256-30Xi0fS+UsJ9yuebTNjgy/oZ2M+R3EdQ+ySI3OyOR7s=",
+        "lastModified": 1735302659,
+        "narHash": "sha256-4iJEF+Bo5vfYfmpXC9YWh9jgHKPR8fIxIeGDi4v9SwE=",
         "ref": "refs/heads/main",
-        "rev": "b6deb2e4b0ede0dbe51280bcdafb144d0ef4a1ae",
-        "revCount": 2529,
+        "rev": "e3fe2833934d3e8246a7c4bdc9e30eb293af159e",
+        "revCount": 2577,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/diffblue/hw-cbmc.git"
@@ -112,11 +112,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1734119587,
-        "narHash": "sha256-AKU6qqskl0yf2+JdRdD0cfxX4b9x3KKV5RqA6wijmPM=",
+        "lastModified": 1735291276,
+        "narHash": "sha256-NYVcA06+blsLG6wpAbSPTCyLvxD/92Hy4vlY9WxFI1M=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "3566ab7246670a43abd2ffa913cc62dad9cdf7d5",
+        "rev": "634fd46801442d760e09493a794c4f15db2d0cbb",
         "type": "github"
       },
       "original": {
@@ -177,11 +177,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1734230139,
-        "narHash": "sha256-zsp0Mz8VgyIAnU8UhP/YT1g+zlsl+NIJTBMAbY+RifQ=",
+        "lastModified": 1735525800,
+        "narHash": "sha256-pcN8LAL021zdC99a9F7iEiFCI1wmrE4DpIYUgKpB/jY=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "150fbc8aa2bc501041810bbc1dbfe73694a861be",
+        "rev": "10faa81b4c0135a04716cbd1649260d82b2890cd",
         "type": "github"
       },
       "original": {
