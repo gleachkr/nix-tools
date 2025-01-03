@@ -4,14 +4,6 @@
     flake-utils.url = "github:numtide/flake-utils";
     rust-overlay.url = "github:oxalica/rust-overlay";
     sbt-derivation.url = "github:zaninime/sbt-derivation";
-    codecompanion = {
-      url = "github:olimorris/codecompanion.nvim";
-      flake = false;
-    };
-    vim-pandoc = {
-      url = "github:vim-pandoc/vim-pandoc";
-      flake = false;
-    };
     kani-repo = {
         url = "https://github.com/model-checking/kani/archive/refs/tags/kani-0.55.0.tar.gz";
         flake = false;
@@ -48,8 +40,6 @@
           packages.openocd = pkgs.openocd;
 
           packages.vitejs= pkgs.vitejs;
-
-          packages.neovim = pkgs.my-neovim;
 
           packages.kani = pkgs.kani;
 
@@ -92,8 +82,6 @@
         vampire = final.callPackage ./vampire { };
 
         vitejs = final.callPackage ./vitejs { };
-
-        my-neovim = final.callPackage ./neovim { inherit (inputs) codecompanion vim-pandoc; };
 
         ebmc = final.callPackage ./ebmc { inherit (inputs) ebmc-repo; };
 
