@@ -43,6 +43,10 @@
 
           packages.kani = pkgs.kani;
 
+          packages.quint = pkgs.quint;
+
+          packages.quint-lsp = pkgs.quint-lsp;
+
           packages.apalache = pkgs.apalache;
 
           packages.ebmc = pkgs.ebmc;
@@ -82,6 +86,10 @@
         vampire = final.callPackage ./vampire { };
 
         vitejs = final.callPackage ./vitejs { };
+
+        quint = final.callPackage ./quint { };
+
+        quint-lsp = final.callPackage ./quint-lsp { };
 
         ebmc = final.callPackage ./ebmc { inherit (inputs) ebmc-repo; };
 

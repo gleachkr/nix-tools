@@ -17,22 +17,6 @@
         "type": "github"
       }
     },
-    "codecompanion": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1735475433,
-        "narHash": "sha256-nLyxEAu4sSoNk1OWsKvxETpziVeAtzyg385mz9FmDCQ=",
-        "owner": "olimorris",
-        "repo": "codecompanion.nvim",
-        "rev": "dab51b5a195ad382f1e4b3a4968f836c4bb48623",
-        "type": "github"
-      },
-      "original": {
-        "owner": "olimorris",
-        "repo": "codecompanion.nvim",
-        "type": "github"
-      }
-    },
     "ebmc-repo": {
       "flake": false,
       "locked": {
@@ -161,15 +145,13 @@
     "root": {
       "inputs": {
         "apalache-repo": "apalache-repo",
-        "codecompanion": "codecompanion",
         "ebmc-repo": "ebmc-repo",
         "flake-utils": "flake-utils",
         "kani-repo": "kani-repo",
         "kani-tarball": "kani-tarball",
         "nixpkgs": "nixpkgs",
         "rust-overlay": "rust-overlay",
-        "sbt-derivation": "sbt-derivation",
-        "vim-pandoc": "vim-pandoc"
+        "sbt-derivation": "sbt-derivation"
       }
     },
     "rust-overlay": {
@@ -221,22 +203,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "vim-pandoc": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1721679064,
-        "narHash": "sha256-Pb5yyqZNA1RfsvXYZgiM3sCRPr7u+Klc6rgVLKx+QCo=",
-        "owner": "vim-pandoc",
-        "repo": "vim-pandoc",
-        "rev": "bd11902651edc18076f90ed291581d785be52311",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vim-pandoc",
-        "repo": "vim-pandoc",
         "type": "github"
       }
     }
