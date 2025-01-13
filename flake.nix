@@ -5,16 +5,16 @@
     rust-overlay.url = "github:oxalica/rust-overlay";
     sbt-derivation.url = "github:zaninime/sbt-derivation";
     kani-repo = {
-        url = "https://github.com/model-checking/kani/archive/refs/tags/kani-0.55.0.tar.gz";
-        flake = false;
+      url = "https://github.com/model-checking/kani/archive/refs/tags/kani-0.55.0.tar.gz";
+      flake = false;
     };
     kani-tarball = {
-        url = "https://github.com/model-checking/kani/releases/download/kani-0.55.0/kani-0.55.0-x86_64-unknown-linux-gnu.tar.gz";
-        flake = false;
-      };
+      url = "https://github.com/model-checking/kani/releases/download/kani-0.55.0/kani-0.55.0-x86_64-unknown-linux-gnu.tar.gz";
+      flake = false;
+    };
     apalache-repo = {
-        url = "github:apalache-mc/apalache/v0.46.1";
-        flake = false;
+      url = "github:apalache-mc/apalache/v0.46.1"; # NOTE: also available via cosmos.nix, but this is a more recent version
+      flake = false;
     };
     ebmc-repo = {
       url = "git+https://github.com/diffblue/hw-cbmc.git?submodules=1";
@@ -22,39 +22,39 @@
     };
   };
   outputs = inputs@{ self, nixpkgs, flake-utils, ... }:
+  let
+    out = system:
     let
-      out = system:
-        let
-          pkgs = import nixpkgs { 
-            inherit system; 
-            overlays = [self.overlays.default]; 
-          };
-        in
-        {
-          packages.genmc-unwrapped = pkgs.genmc-unwrapped;
-
-          packages.genmc = pkgs.genmc;
-
-          packages.vampire = pkgs.vampire;
-
-          packages.openocd = pkgs.openocd;
-
-          packages.vitejs= pkgs.vitejs;
-
-          packages.kani = pkgs.kani;
-
-          packages.quint = pkgs.quint;
-
-          packages.quint-lsp = pkgs.quint-lsp;
-
-          packages.apalache = pkgs.apalache;
-
-          packages.ebmc = pkgs.ebmc;
-
-        };
-
+      pkgs = import nixpkgs { 
+        inherit system; 
+        overlays = [self.overlays.default]; 
+      };
     in
-    flake-utils.lib.eachDefaultSystem out // {
+    {
+      packages.genmc-unwrapped = pkgs.genmc-unwrapped;
+
+      packages.genmc = pkgs.genmc;
+
+      packages.vampire = pkgs.vampire;
+
+      packages.openocd = pkgs.openocd;
+
+      packages.vitejs= pkgs.vitejs;
+
+      packages.kani = pkgs.kani;
+
+      packages.quint = pkgs.quint;
+
+      packages.quint-lsp = pkgs.quint-lsp;
+
+      packages.apalache = pkgs.apalache;
+
+      packages.ebmc = pkgs.ebmc;
+
+    };
+
+  in
+  flake-utils.lib.eachDefaultSystem out // {
 
       # templates and overlays go here because they don't need a <system>
       # version being added by flake-utils 
