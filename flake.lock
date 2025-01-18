@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "alectryon-repo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1732905396,
+        "narHash": "sha256-bWQvsUWUm5Y1xKU/g99AaLXWdWcgA9X0vRbhdRD4TLI=",
+        "owner": "cpitclaudel",
+        "repo": "alectryon",
+        "rev": "5a35676636766d2c6de8f1856a4bc168a3515ecb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cpitclaudel",
+        "repo": "alectryon",
+        "type": "github"
+      }
+    },
     "apalache-repo": {
       "flake": false,
       "locked": {
@@ -94,6 +110,22 @@
         "url": "https://github.com/model-checking/kani/releases/download/kani-0.55.0/kani-0.55.0-x86_64-unknown-linux-gnu.tar.gz"
       }
     },
+    "leanink-repo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1721308297,
+        "narHash": "sha256-AlkjNfKaUA0m+gLJkiBbp7xOqNXNG4oBOU+8kHIK+p4=",
+        "owner": "leanprover",
+        "repo": "leanink",
+        "rev": "799e0fa7abd4ea6ec0c54301f5543960b42599ae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "leanprover",
+        "repo": "leanink",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1735291276,
@@ -144,11 +176,13 @@
     },
     "root": {
       "inputs": {
+        "alectryon-repo": "alectryon-repo",
         "apalache-repo": "apalache-repo",
         "ebmc-repo": "ebmc-repo",
         "flake-utils": "flake-utils",
         "kani-repo": "kani-repo",
         "kani-tarball": "kani-tarball",
+        "leanink-repo": "leanink-repo",
         "nixpkgs": "nixpkgs",
         "rust-overlay": "rust-overlay",
         "sbt-derivation": "sbt-derivation"

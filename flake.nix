@@ -4,6 +4,14 @@
     flake-utils.url = "github:numtide/flake-utils";
     rust-overlay.url = "github:oxalica/rust-overlay";
     sbt-derivation.url = "github:zaninime/sbt-derivation";
+    alectryon-repo = {
+      url = "github:cpitclaudel/alectryon";
+      flake = false;
+    };
+    leanink-repo = {
+      url = "github:leanprover/leanink";
+      flake = false;
+    };
     kani-repo = {
       url = "https://github.com/model-checking/kani/archive/refs/tags/kani-0.55.0.tar.gz";
       flake = false;
@@ -51,6 +59,8 @@
 
       packages.ebmc = pkgs.ebmc;
 
+      packages.alectryon = pkgs.alectryon;
+
     };
 
   in
@@ -91,11 +101,19 @@
 
         quint-lsp = final.callPackage ./quint-lsp { };
 
+        alectryon = final.python312Packages.callPackage ./alectryon { 
+          inherit (inputs) leanink-repo alectryon-repo; 
+        };
+
         ebmc = final.callPackage ./ebmc { inherit (inputs) ebmc-repo; };
 
-        kani = final.callPackage ./kani { inherit (inputs) rust-overlay kani-tarball kani-repo; };
+        kani = final.callPackage ./kani { 
+          inherit (inputs) rust-overlay kani-tarball kani-repo; 
+        };
 
-        apalache = final.callPackage ./apalache { inherit (inputs) apalache-repo sbt-derivation; };
+        apalache = final.callPackage ./apalache { 
+          inherit (inputs) apalache-repo sbt-derivation; 
+        };
 
         openocd = prev.openocd.overrideAttrs {
           configureFlags = [
