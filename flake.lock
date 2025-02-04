@@ -87,27 +87,34 @@
     "kani-repo": {
       "flake": false,
       "locked": {
-        "lastModified": 1725480001,
-        "narHash": "sha256-BBcJopXNSKwvMqs/wcw743+g4lvGTqy1OrATTBxph+I=",
-        "type": "tarball",
-        "url": "https://github.com/model-checking/kani/archive/refs/tags/kani-0.55.0.tar.gz"
+        "lastModified": 1728501719,
+        "narHash": "sha256-O4zNkhpI0lFFomFzExBnM5y4Rj0Sm5CgQyw6cqek6Pg=",
+        "ref": "main",
+        "rev": "0182e99acdfff89f3f55b7324823d8d7c540a959",
+        "revCount": 1733,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/model-checking/kani"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://github.com/model-checking/kani/archive/refs/tags/kani-0.55.0.tar.gz"
+        "ref": "main",
+        "rev": "0182e99acdfff89f3f55b7324823d8d7c540a959",
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/model-checking/kani"
       }
     },
     "kani-tarball": {
       "flake": false,
       "locked": {
-        "lastModified": 1725486047,
-        "narHash": "sha256-i3hnxrZJ8pQIC2QrTJbh9X5mYXLf5XzLls1taOB9noU=",
+        "lastModified": 1728514074,
+        "narHash": "sha256-B4RsBkVmBwnt8HX9HKSYCWFwVhxj4fHHxxW9gla2KKk=",
         "type": "tarball",
-        "url": "https://github.com/model-checking/kani/releases/download/kani-0.55.0/kani-0.55.0-x86_64-unknown-linux-gnu.tar.gz"
+        "url": "https://github.com/model-checking/kani/releases/download/kani-0.56.0/kani-0.56.0-x86_64-unknown-linux-gnu.tar.gz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://github.com/model-checking/kani/releases/download/kani-0.55.0/kani-0.55.0-x86_64-unknown-linux-gnu.tar.gz"
+        "url": "https://github.com/model-checking/kani/releases/download/kani-0.56.0/kani-0.56.0-x86_64-unknown-linux-gnu.tar.gz"
       }
     },
     "leanink-repo": {

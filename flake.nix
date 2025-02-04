@@ -13,11 +13,11 @@
       flake = false;
     };
     kani-repo = {
-      url = "https://github.com/model-checking/kani/archive/refs/tags/kani-0.55.0.tar.gz";
+      url = "git+https://github.com/model-checking/kani?ref=main&rev=0182e99acdfff89f3f55b7324823d8d7c540a959&submodules=1";
       flake = false;
     };
     kani-tarball = {
-      url = "https://github.com/model-checking/kani/releases/download/kani-0.55.0/kani-0.55.0-x86_64-unknown-linux-gnu.tar.gz";
+      url = "https://github.com/model-checking/kani/releases/download/kani-0.56.0/kani-0.56.0-x86_64-unknown-linux-gnu.tar.gz";
       flake = false;
     };
     apalache-repo = {
