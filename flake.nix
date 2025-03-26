@@ -120,6 +120,11 @@
             "--enable-remote-bitbang"
             "--enable-jtag_vpi"
             "--enable-ftd"
+            "--disable-werror" 
+            # ↑ this is necessary because of warning related to a calloc call
+            # with transposed arguments. calloc(a,sizeof(b)) is equivalent to
+            # calloc(sizeof(b),a), but the sizeof is technically upposed to go
+            # in the second argument.
           ];
         };
 
