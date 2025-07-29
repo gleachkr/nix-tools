@@ -53,6 +53,8 @@
 
       packages.quint = pkgs.quint;
 
+      packages.souffle = pkgs.souffle;
+
       packages.quint-lsp = pkgs.quint-lsp;
 
       packages.apalache = pkgs.apalache;
@@ -98,6 +100,8 @@
         vitejs = final.callPackage ./vitejs { };
 
         quint = final.callPackage ./quint { };
+
+        souffle = final.callPackage ./souffle { };
 
         quint-lsp = final.callPackage ./quint-lsp { };
 
