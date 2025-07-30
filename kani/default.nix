@@ -13,7 +13,7 @@
 let
   rustPkgs = extend (import rust-overlay);
 
-  rustHome = rustPkgs.rust-bin.nightly."2024-10-03".default.override {
+  rustHome = rustPkgs.rust-bin.nightly."2025-07-02".default.override {
     extensions = ["rustc-dev" "rust-src" "llvm-tools" "rustfmt"];
   };
 
@@ -47,11 +47,13 @@ let
   kani = rustPlatform.buildRustPackage rec {
     pname = "kani";
 
-    version = "kani-0.56.0";
+    version = "kani-0.64.0";
 
     src = kani-repo;
 
     nativeBuildInputs = [ makeWrapper ];
+
+    patches = [ ./deps.patch ];
 
     postInstall = ''
     mkdir -p $out/lib/
@@ -65,7 +67,10 @@ let
     wrapProgram $out/bin/cargo-kani --set KANI_HOME $out/lib/
     '';
 
-    cargoHash = "sha256-WbMkcWvAnoRCB5CYhf3KR4obMB2GW42Rc3unRstafGU=";
+    cargoDeps = rustPlatform.fetchCargoVendor {
+      inherit patches pname version src;
+      hash = "sha256-1MfK2O4F0YJZJgDRxwAQ8vRM4Xgx9i1Xl1+InH6r2b4=";
+    };
 
     env = {
       RUSTUP_HOME = "${rustHome}";

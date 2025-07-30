@@ -87,18 +87,18 @@
     "kani-repo": {
       "flake": false,
       "locked": {
-        "lastModified": 1728501719,
-        "narHash": "sha256-O4zNkhpI0lFFomFzExBnM5y4Rj0Sm5CgQyw6cqek6Pg=",
+        "lastModified": 1751568156,
+        "narHash": "sha256-8UyAO9eTwcUtOktSJ9QdYpccgDRefWDTIewjAwvkhdA=",
         "ref": "main",
-        "rev": "0182e99acdfff89f3f55b7324823d8d7c540a959",
-        "revCount": 1733,
+        "rev": "96f7e59a8c8058f3edbdcc4d52940e376d54ff09",
+        "revCount": 2130,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/model-checking/kani"
       },
       "original": {
         "ref": "main",
-        "rev": "0182e99acdfff89f3f55b7324823d8d7c540a959",
+        "rev": "96f7e59a8c8058f3edbdcc4d52940e376d54ff09",
         "submodules": true,
         "type": "git",
         "url": "https://github.com/model-checking/kani"
@@ -107,14 +107,14 @@
     "kani-tarball": {
       "flake": false,
       "locked": {
-        "lastModified": 1728514074,
-        "narHash": "sha256-B4RsBkVmBwnt8HX9HKSYCWFwVhxj4fHHxxW9gla2KKk=",
+        "lastModified": 1751573292,
+        "narHash": "sha256-RP38iCbQWoQyAYtq2Nnkm6iFhXtVQ4rbHaKyCFMcIsQ=",
         "type": "tarball",
-        "url": "https://github.com/model-checking/kani/releases/download/kani-0.56.0/kani-0.56.0-x86_64-unknown-linux-gnu.tar.gz"
+        "url": "https://github.com/model-checking/kani/releases/download/kani-0.64.0/kani-0.64.0-x86_64-unknown-linux-gnu.tar.gz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://github.com/model-checking/kani/releases/download/kani-0.56.0/kani-0.56.0-x86_64-unknown-linux-gnu.tar.gz"
+        "url": "https://github.com/model-checking/kani/releases/download/kani-0.64.0/kani-0.64.0-x86_64-unknown-linux-gnu.tar.gz"
       }
     },
     "leanink-repo": {
@@ -151,11 +151,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1728538411,
-        "narHash": "sha256-f0SBJz1eZ2yOuKUr5CA9BHULGXVSn6miBuUWdTyhUhU=",
+        "lastModified": 1744536153,
+        "narHash": "sha256-awS2zRgF4uTwrOKwwiJcByDzDOdo3Q1rPZbiHQg/N38=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b69de56fac8c2b6f8fd27f2eca01dcda8e0a4221",
+        "rev": "18dd725c29603f582cf1900e0d25f9f1063dbf11",
         "type": "github"
       },
       "original": {
@@ -200,11 +200,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1735525800,
-        "narHash": "sha256-pcN8LAL021zdC99a9F7iEiFCI1wmrE4DpIYUgKpB/jY=",
+        "lastModified": 1753843724,
+        "narHash": "sha256-a0Aab7Zst68GqvNAMh9Ejwnp8gawGnruOMtEWZ0HHjM=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "10faa81b4c0135a04716cbd1649260d82b2890cd",
+        "rev": "01ac47d86311fb030023f1dfc5f6bc368b9c6cee",
         "type": "github"
       },
       "original": {
