@@ -87,18 +87,18 @@
     "kani-repo": {
       "flake": false,
       "locked": {
-        "lastModified": 1751568156,
-        "narHash": "sha256-8UyAO9eTwcUtOktSJ9QdYpccgDRefWDTIewjAwvkhdA=",
+        "lastModified": 1762416501,
+        "narHash": "sha256-IZ8rfDYkSw33vGDrvsUlRUSt3WUvV/ZOusz9JJWZka8=",
         "ref": "main",
-        "rev": "96f7e59a8c8058f3edbdcc4d52940e376d54ff09",
-        "revCount": 2130,
+        "rev": "b37b90f4081da4e4194b1c8a728c117128d5e06e",
+        "revCount": 2334,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/model-checking/kani"
       },
       "original": {
         "ref": "main",
-        "rev": "96f7e59a8c8058f3edbdcc4d52940e376d54ff09",
+        "rev": "b37b90f4081da4e4194b1c8a728c117128d5e06e",
         "submodules": true,
         "type": "git",
         "url": "https://github.com/model-checking/kani"
@@ -107,14 +107,14 @@
     "kani-tarball": {
       "flake": false,
       "locked": {
-        "lastModified": 1751573292,
-        "narHash": "sha256-RP38iCbQWoQyAYtq2Nnkm6iFhXtVQ4rbHaKyCFMcIsQ=",
+        "lastModified": 1762420546,
+        "narHash": "sha256-/a+pVGQObCQjP4BVaQXHoO1DlDiXOw8yCjiTkGDcPWA=",
         "type": "tarball",
-        "url": "https://github.com/model-checking/kani/releases/download/kani-0.64.0/kani-0.64.0-x86_64-unknown-linux-gnu.tar.gz"
+        "url": "https://github.com/model-checking/kani/releases/download/kani-0.66.0/kani-0.66.0-x86_64-unknown-linux-gnu.tar.gz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://github.com/model-checking/kani/releases/download/kani-0.64.0/kani-0.64.0-x86_64-unknown-linux-gnu.tar.gz"
+        "url": "https://github.com/model-checking/kani/releases/download/kani-0.66.0/kani-0.66.0-x86_64-unknown-linux-gnu.tar.gz"
       }
     },
     "leanink-repo": {
@@ -200,11 +200,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1753843724,
-        "narHash": "sha256-a0Aab7Zst68GqvNAMh9Ejwnp8gawGnruOMtEWZ0HHjM=",
+        "lastModified": 1762396738,
+        "narHash": "sha256-BarSecuxtzp1boERdABLkkoxQTi6s/V33lJwUbWLrLY=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "01ac47d86311fb030023f1dfc5f6bc368b9c6cee",
+        "rev": "c63598992afd54d215d54f2b764adc0484c2b159",
         "type": "github"
       },
       "original": {
