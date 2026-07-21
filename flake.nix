@@ -63,6 +63,8 @@
 
       packages.alectryon = pkgs.alectryon;
 
+      packages.isla = pkgs.isla;
+
     };
 
   in
@@ -102,6 +104,8 @@
         quint = final.callPackage ./quint { };
 
         souffle = final.callPackage ./souffle { };
+
+        isla = final.callPackage ./isla { };
 
         quint-lsp = final.callPackage ./quint-lsp { };
 
