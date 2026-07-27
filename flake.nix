@@ -65,6 +65,10 @@
 
       packages.isla = pkgs.isla;
 
+      packages.sail = pkgs.sail;
+
+      packages.isla-sail = pkgs.isla-sail;
+
     };
 
   in
@@ -106,6 +110,14 @@
         souffle = final.callPackage ./souffle { };
 
         isla = final.callPackage ./isla { };
+
+        sail = final.ocamlPackages.callPackage ./sail {
+          inherit (final) z3;
+        };
+
+        isla-sail = final.ocamlPackages.callPackage ./isla-sail {
+          inherit (final) sail;
+        };
 
         quint-lsp = final.callPackage ./quint-lsp { };
 

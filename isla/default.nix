@@ -7,7 +7,7 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "isla";
-  version = "0.2.0-unstable-2025-07-21";
+  version = "0.2.0-unstable-2026-02-25";
 
   src = fetchFromGitHub {
     owner = "rems-project";
@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-ilxX8o36PKCeLUWpX3K27TuT9fQUY0x2liPcXXN3NF8=";
   };
 
-  cargoHash = "sha256-9o9EmBVkZylGaOGUbXNZ2UzjQ6RVc4KNZRwUVG1PTvA=";
+  cargoHash = "sha256-HQ4tnz2M0qnEdNuwJZi4FeJBzaQcYQfhU2HpSzi9ywA=";
 
   nativeBuildInputs = [ makeWrapper ];
 

@@ -1,0 +1,8 @@
+diff --git a/isla-sail/sail_plugin_isla.ml b/isla-sail/sail_plugin_isla.ml
+index 203526e..a114c0d 100644
+--- a/isla-sail/sail_plugin_isla.ml
++++ b/isla-sail/sail_plugin_isla.ml
+@@ -53,2 +53,3 @@
+ open Ast
++open Ast_compare
+ open Ast_util
