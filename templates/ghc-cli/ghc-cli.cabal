@@ -1,0 +1,19 @@
+cabal-version: 3.12
+name: ghc-cli
+version: 0.1.0.0
+synopsis: A starter for Haskell command-line filters
+description: A stdin-to-stdout example using Text and Megaparsec.
+category: Development
+license: 0BSD
+license-file: LICENSE
+extra-doc-files: README.md
+
+executable ghc-cli
+  main-is: Main.hs
+  hs-source-dirs: app
+  default-language: GHC2024
+  ghc-options: -Wall
+  build-depends:
+      base >=4.20 && <5
+    , megaparsec ^>=9.7
+    , text ^>=2.1

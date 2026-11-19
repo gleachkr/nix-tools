@@ -1,0 +1,4 @@
+/.direnv/
+/.ghc.environment.*
+/cabal.project.local*
+/dist-newstyle/

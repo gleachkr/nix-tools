@@ -89,6 +89,11 @@
           path = ./templates/llvm-pass;
         };
 
+        ghc-cli = {
+          description = "A native Haskell CLI starter with Cabal and HLS";
+          path = ./templates/ghc-cli;
+        };
+
         ghc-wasm = {
           description = "a minimal template GHC WASM project";
           path = ./templates/ghc-wasm;
